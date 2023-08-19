@@ -1,5 +1,8 @@
 # A Dendron Workspace to keep my web-dev study notes.
 
+> [!IMPORTANT]
+> It is the continuation of the my-dev-notes repo, which will be superseded by this one.
+
 ## References for how to use Dendron:
 
 - [View the Demo Website](https://link.dendron.so/netlify-demo)
