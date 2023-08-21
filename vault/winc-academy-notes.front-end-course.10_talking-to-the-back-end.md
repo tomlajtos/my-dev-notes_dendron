@@ -2,7 +2,7 @@
 id: n8wgse9glwraqiceuqtleav
 title: FE Module 10 - Talking to The Back End
 desc: "Winc FE module 10"
-updated: 1692450578936
+updated: 1692649438480
 created: 1692449797540
 ---
 
@@ -511,7 +511,57 @@ setTimeout(() => {
 
 ### 13. Render API response in DOM
 
-![figure application (fe ⇔ be)](./winc-fe-notes-figures/application.png)
+```mermaid
+flowchart   LR
+id1[Browser \n with \n DOM]
+id2[User \n interaction]
+id3[UI output]
+id4[Application \n logic \n a.k.a. \n business \n rules]
+id5[Input]
+id6[Output]
+id7[Backend]
+
+classDef container fill: #9f9f9f, color: transparent
+classDef app color:#000, fill:transparent, stroke:#000, stroke-dasharray: 5 5
+classDef s3 fill:transparent, stroke: #2f2f2f
+classDef s1 fill:transparent, stroke: #252525, color:transparent
+classDef s2 fill:transparent, stroke: #353535, color:transparent
+classDef s3 fill:transparent, stroke: transparent, color:#000
+
+container:::container
+subgraph container
+direction RL
+Server:::s1
+    subgraph Server
+    id7:::s3
+    end
+APP:::app
+    subgraph APP
+        direction TB
+        UI:::s2
+        subgraph UI
+            direction TB
+            id2:::s3 -.- id3:::s3
+        end
+        LOGIC:::s2
+        subgraph LOGIC
+            id4:::s3
+        end
+        I/O:::s2
+        subgraph I/O
+            direction TB
+            id5:::s3 -.- id6:::s3
+        end
+    end
+Browser:::s1
+subgraph Browser
+id1:::s3
+end
+end
+
+Browser --Events--> UI --Action \n + \n Data --> LOGIC --Action \n + \n Data --> I/O --Changes--> Server --Current\nData--> I/O --Data--> LOGIC --Data--> UI --DOM\nChanges\n+HTML--> Browser
+
+```
 
 **good place to start where the least connections & interdependencies are between the diff parts**
 
