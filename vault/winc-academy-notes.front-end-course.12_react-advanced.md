@@ -2,7 +2,7 @@
 id: qzms8czz3nisfgbzl2h8829
 title: FE Module 12 - React Advanced
 desc: "Winc FE Module 12"
-updated: 1692451474842
+updated: 1692519820890
 created: 1692450149764
 ---
 
@@ -1000,4 +1000,5 @@ export const useToggle = (initialState = "off") => {
 }
 ```
 
-[**Back to TOC**](#front-end-development)
+[[winc-academy-notes.front-end-course]]
+[[winc-academy-notes.front-end-course.11_react-basics]]
