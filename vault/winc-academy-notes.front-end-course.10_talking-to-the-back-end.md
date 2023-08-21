@@ -2,7 +2,7 @@
 id: n8wgse9glwraqiceuqtleav
 title: FE Module 10 - Talking to The Back End
 desc: "Winc FE module 10"
-updated: 1692649438480
+updated: 1692651163576
 created: 1692449797540
 ---
 
@@ -512,6 +512,20 @@ setTimeout(() => {
 ### 13. Render API response in DOM
 
 ```mermaid
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#BB2528',
+      'primaryTextColor': '#fff',
+      'primaryBorderColor': '#7C0000',
+      'lineColor': '#000000',
+      'secondaryColor': '#336189',
+      'tertiaryColor': '#fff'
+    }
+  }
+}%%
+
 flowchart   LR
 id1[Browser \n with \n DOM]
 id2[User \n interaction]
