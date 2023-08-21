@@ -2,7 +2,7 @@
 id: n8wgse9glwraqiceuqtleav
 title: FE Module 10 - Talking to The Back End
 desc: "Winc FE module 10"
-updated: 1692651163576
+updated: 1692651804032
 created: 1692449797540
 ---
 
@@ -544,14 +544,14 @@ classDef s3 fill:transparent, stroke: transparent, color:#000
 
 container:::container
 subgraph container
-direction RL
-Server:::s1
-    subgraph Server
-    id7:::s3
+direction LR
+    Browser:::s1
+    subgraph Browser
+        id1:::s3
     end
-APP:::app
+    APP:::app
     subgraph APP
-        direction TB
+    direction TB
         UI:::s2
         subgraph UI
             direction TB
@@ -567,10 +567,10 @@ APP:::app
             id5:::s3 -.- id6:::s3
         end
     end
-Browser:::s1
-subgraph Browser
-id1:::s3
-end
+Server:::s1
+    subgraph Server
+      id7:::s3
+    end
 end
 
 Browser --Events--> UI --Action \n + \n Data --> LOGIC --Action \n + \n Data --> I/O --Changes--> Server --Current\nData--> I/O --Data--> LOGIC --Data--> UI --DOM\nChanges\n+HTML--> Browser
