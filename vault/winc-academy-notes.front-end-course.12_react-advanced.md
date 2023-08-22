@@ -1000,5 +1000,5 @@ export const useToggle = (initialState = "off") => {
 }
 ```
 
-[[winc-academy-notes.front-end-course]]
+[[winc-academy-notes.front-end-course]]  
 [[winc-academy-notes.front-end-course.11_react-basics]]
