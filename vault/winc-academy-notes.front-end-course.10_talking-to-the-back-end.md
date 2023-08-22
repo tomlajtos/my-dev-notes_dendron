@@ -2,7 +2,7 @@
 id: n8wgse9glwraqiceuqtleav
 title: FE Module 10 - Talking to The Back End
 desc: "Winc FE module 10"
-updated: 1692651804032
+updated: 1692713951488
 created: 1692449797540
 ---
 
@@ -575,6 +575,98 @@ end
 
 Browser --Events--> UI --Action \n + \n Data --> LOGIC --Action \n + \n Data --> I/O --Changes--> Server --Current\nData--> I/O --Data--> LOGIC --Data--> UI --DOM\nChanges\n+HTML--> Browser
 
+```
+
+#### something
+
+```mermaid
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#9fff22',
+      'primaryTextColor': '#1d1d1d',
+      'primaryBorderColor': 'none',
+      'lineColor': '#000',
+      'secondaryColor': '#9fff22',
+      'tertiaryColor': '#fff'
+    }
+  }
+}%%
+
+flowchart
+direction LR
+0[API Response Chart]
+1[Browser \n with \n DOM \n\n]
+3[User \n interaction]
+5[Application \n logic \n a.k.a. \n business \n rules]
+6[IO\n\n\n]
+7[Back-\nend]
+
+classDef transp fill: #cfcfcf, stroke: none, color: #cfcfcf
+classDef app fill: #efefef, stroke: none, color: #000, font-weight: bold
+classDef L1 fill: #566cff, stroke: none, color: #fff, font-weight: bold
+classDef L2 fill: #ef8e14, stroke: none, color: #fff, font-weight: bold
+
+
+
+0:::transp
+subgraph 0
+  1:::L1
+  APPLICATION:::app
+  subgraph APPLICATION
+    UI:::L1
+    subgraph UI
+      3:::L2
+    end
+    5:::L1
+    6:::L1
+  end
+  7:::L1
+end
+
+1 --Events--> 3
+UI  --DOM \n Changes \n +HTML--> 1
+3  --Action \n + \n Data--> 5
+5  --Data--> UI
+5  --Action \n + \n Data--> 6
+6  --Data--> 5
+6  --Changes--> 7
+7  --Current \n Data--> 6
+
+```
+
+line with not much in it
+
+```mermaid
+%%{
+  init: {
+    'theme': 'base',
+    'themeVariables': {
+      'primaryColor': '#9fff22',
+      'primaryTextColor': '#1d1d1d',
+      'primaryBorderColor': 'none',
+      'lineColor': '#000',
+      'secondaryColor': '#0009ff',
+      'tertiaryColor': '#fff'
+    }
+  }
+}%%
+
+stateDiagram
+   direction TB
+
+
+   [*] --> Still:::notMoving
+   Still --> [*]
+   Still --> Moving:::movement
+   Moving --> Still
+   Moving --> Crash:::movement
+   Crash:::badBadEvent --> [*]
+
+   classDef notMoving fill:white;
+   classDef movement font-style:italic;
+   classDef badBadEvent fill:#f00,color:white,font-weight:bold,stroke-width:2px,stroke:yellow;
 ```
 
 **good place to start where the least connections & interdependencies are between the diff parts**
