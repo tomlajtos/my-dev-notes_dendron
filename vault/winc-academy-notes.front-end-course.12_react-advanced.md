@@ -948,6 +948,8 @@ In this case, the title should be a dependency of the Effect.
 
 ### 05.02. Custom Hooks
 
+[Custom Hooks documentation](https://reactjs.org/docs/hooks-custom.html)
+
 We can use custom hooks to share (stateful) logic between components and avoid duplicate code.
 It is possible to build our own hooks, aka. custom hooks. We could use them for different purposes like:
 
@@ -998,6 +1000,22 @@ export const useToggle = (initialState = "off") => {
   };
   return [toggleState, toggle];
 }
+```
+
+#### Exercise: Create a custom hook to store values in the browser's local storage
+
+[Doc: Web Storage API on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API)
+[Doc: localStorage on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+
+- this built-in browser API, helps to save values between sessions
+- values can be restored IF we use the same browser on the same computer (obvi)
+  We'll use the `window.localStorage` object which have several methods for this usecase i.e.:
+- `getItem()`, `setItem()`
+- for this we need a **key** ('name' in the exercise) to identify our data
+
+```javascript
+window.localStorage.setItem("key", value);
+window.localStorage.getItem("key");
 ```
 
 [[winc-academy-notes.front-end-course]]  
