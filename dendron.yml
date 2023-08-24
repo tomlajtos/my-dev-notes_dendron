@@ -101,4 +101,3 @@ publishing:
     editBranch: main
     editViewMode: tree
   enablePrettyLinks: true
-  siteUrl: https://dev-notes-tl.netlify.app/#dev-notes
