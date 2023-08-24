@@ -1,5 +1,15 @@
 {
   "dependencies": {
-    "@dendronhq/dendron-cli": "*"
-  }
+    "@dendronhq/dendron-cli": "^0.122.0"
+  },
+  "name": "my-dev-notes-dendron-test-pub",
+  "description": "> [!IMPORTANT] > It is the continuation of the my-dev-notes repo, which will be superseded by this one.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
