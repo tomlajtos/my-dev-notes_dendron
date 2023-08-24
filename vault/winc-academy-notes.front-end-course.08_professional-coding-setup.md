@@ -2,7 +2,7 @@
 id: 4q0k7la6wwzi5krzdtuxi5f
 title: FE Module 08 - Professional Coding Setup
 desc: "Winc FE Module 08"
-updated: 1692450028466
+updated: 1692872915293
 created: 1692448192441
 ---
 
@@ -221,3 +221,6 @@ conditions of oss/os project use is described in the project license (MIT etc.)
   alt: Gitlab, Gitea
 
 ## 12. Git on the computer / local repo
+
+[[winc-academy-notes.front-end-course]]  
+[[winc-academy-notes.front-end-course.09_js-in-the-browser]]

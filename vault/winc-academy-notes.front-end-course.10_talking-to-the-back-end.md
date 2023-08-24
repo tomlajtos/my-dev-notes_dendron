@@ -2,7 +2,7 @@
 id: n8wgse9glwraqiceuqtleav
 title: FE Module 10 - Talking to The Back End
 desc: "Winc FE module 10"
-updated: 1692713951488
+updated: 1692873633558
 created: 1692449797540
 ---
 
@@ -514,74 +514,11 @@ setTimeout(() => {
 ```mermaid
 %%{
   init: {
-    'theme': 'base',
-    'themeVariables': {
-      'primaryColor': '#BB2528',
-      'primaryTextColor': '#fff',
-      'primaryBorderColor': '#7C0000',
-      'lineColor': '#000000',
-      'secondaryColor': '#336189',
-      'tertiaryColor': '#fff'
-    }
-  }
-}%%
-
-flowchart   LR
-id1[Browser \n with \n DOM]
-id2[User \n interaction]
-id3[UI output]
-id4[Application \n logic \n a.k.a. \n business \n rules]
-id5[Input]
-id6[Output]
-id7[Backend]
-
-classDef container fill: #9f9f9f, color: transparent
-classDef app color:#000, fill:transparent, stroke:#000, stroke-dasharray: 5 5
-classDef s3 fill:transparent, stroke: #2f2f2f
-classDef s1 fill:transparent, stroke: #252525, color:transparent
-classDef s2 fill:transparent, stroke: #353535, color:transparent
-classDef s3 fill:transparent, stroke: transparent, color:#000
-
-container:::container
-subgraph container
-direction LR
-    Browser:::s1
-    subgraph Browser
-        id1:::s3
-    end
-    APP:::app
-    subgraph APP
-    direction TB
-        UI:::s2
-        subgraph UI
-            direction TB
-            id2:::s3 -.- id3:::s3
-        end
-        LOGIC:::s2
-        subgraph LOGIC
-            id4:::s3
-        end
-        I/O:::s2
-        subgraph I/O
-            direction TB
-            id5:::s3 -.- id6:::s3
-        end
-    end
-Server:::s1
-    subgraph Server
-      id7:::s3
-    end
-end
-
-Browser --Events--> UI --Action \n + \n Data --> LOGIC --Action \n + \n Data --> I/O --Changes--> Server --Current\nData--> I/O --Data--> LOGIC --Data--> UI --DOM\nChanges\n+HTML--> Browser
-
-```
-
-#### something
-
-```mermaid
-%%{
-  init: {
+    'flowchart': {
+      'curve': 'linear',
+      'useMaxWidth': true,
+      'padding': 40
+    },
     'theme': 'base',
     'themeVariables': {
       'primaryColor': '#9fff22',
@@ -596,19 +533,18 @@ Browser --Events--> UI --Action \n + \n Data --> LOGIC --Action \n + \n Data -->
 
 flowchart
 direction LR
+
 0[API Response Chart]
-1[Browser \n with \n DOM \n\n]
+1[Browser \n with \n DOM]
 3[User \n interaction]
 5[Application \n logic \n a.k.a. \n business \n rules]
-6[IO\n\n\n]
-7[Back-\nend]
+6[IO]
+7[Backend]
 
 classDef transp fill: #cfcfcf, stroke: none, color: #cfcfcf
 classDef app fill: #efefef, stroke: none, color: #000, font-weight: bold
-classDef L1 fill: #566cff, stroke: none, color: #fff, font-weight: bold
-classDef L2 fill: #ef8e14, stroke: none, color: #fff, font-weight: bold
-
-
+classDef L1 fill: #566cff, stroke: none, color: #fff
+classDef L2 fill: #ef8e14, stroke: none, color: #fff
 
 0:::transp
 subgraph 0
@@ -653,20 +589,49 @@ line with not much in it
   }
 }%%
 
-stateDiagram
-   direction TB
+stateDiagram-v2
+direction LR
 
+%classDef transp fill: #cfcfcf, stroke: none, color: #cfcfcf
+%%classDef app fill: #efefef, stroke: none, color: #000, font-weight: bold
+%%classDef L1 fill: #566cff, stroke: none, color: #fff, font-weight: bold
+%%classDef L2 fill: #ef8e14, stroke: none, color: #fff, font-weight: bold
+%%class 0 transp
+%%class 2 app
+%%class 1, 4, 5, 6, 7 L1
+%%class 3 L2
 
-   [*] --> Still:::notMoving
-   Still --> [*]
-   Still --> Moving:::movement
-   Moving --> Still
-   Moving --> Crash:::movement
-   Crash:::badBadEvent --> [*]
+0: API Response Chart
+1: Browser \n with \n DOM
+2: APPLICATION
+3: User \n interaction
+4: UI
+5: Application \n logic \n a.k.a. \n business \n rules
+6: IO
+7: Backend
 
-   classDef notMoving fill:white;
-   classDef movement font-style:italic;
-   classDef badBadEvent fill:#f00,color:white,font-weight:bold,stroke-width:2px,stroke:yellow;
+state 0{
+    direction LR
+    1
+state 2 {
+    state 4 {
+    3
+}
+    5
+    6
+}
+
+7
+}
+
+1 --> 3: Events
+4 --> 1: DOM \n Changes \n +HTML
+3 --> 5: Action \n + \n Data
+5 --> 4: Data
+5 --> 6: Action \n + \n Data
+6 --> 5: Data
+6 --> 7: Changes
+7 --> 6: Current \n Data
 ```
 
 **good place to start where the least connections & interdependencies are between the diff parts**
@@ -696,4 +661,5 @@ Happy path in the diagram: app logic/business rules w/o validation, IO without c
 
 ? END DETOUR ?
 
-#### Exercise: API response rendering
+[[winc-academy-notes.front-end-course]]  
+[[winc-academy-notes.front-end-course.11_react-basics]]

@@ -2,7 +2,7 @@
 id: mwe7jze1wvzisp6nka6koym
 title: FE Module 11 - React Basics
 desc: "Winc FE module 11"
-updated: 1692450468342
+updated: 1692873474647
 created: 1692449957678
 ---
 
@@ -767,3 +767,6 @@ export const GreetHeader = () => {
   );
 };
 ```
+
+[[winc-academy-notes.front-end-course]]  
+[[winc-academy-notes.front-end-course.12_react-advanced]]
