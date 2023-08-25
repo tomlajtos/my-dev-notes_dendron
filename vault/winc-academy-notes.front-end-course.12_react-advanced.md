@@ -1018,5 +1018,70 @@ window.localStorage.setItem("key", value);
 window.localStorage.getItem("key");
 ```
 
-[[winc-academy-notes.front-end-course]]  
-[[winc-academy-notes.front-end-course.11_react-basics]]
+### 05.03. useReducer hook
+
+This React hook lets us add a reducer (function) to our component, and helps us to manage state inside a component.
+A reducer is a pure function outside the component logic that specifies how the state should be updated.
+It originates from the concept of Array.reduce() method, but instead of usin previous and current values to return a final value,
+it **calculates the next state based on the previous state and the current action** :
+
+```javascript
+const reducer = (state, action) => nextState;
+
+const Comp = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+};
+```
+
+**useReducer** returns the **current state** and a **dispatch function** >> in an array (like useState)
+The **dispatch function** indirectly updates the state through the reducer function >> triggers a **re-render**
+This update happens as the result of user interaction.
+
+We **call the dispatch function** with an argument that represents the user action, it is called _action_ >> this is the
+only argument to the dispatch function. The _action_ will be **provided to the reducer function** as its second argument
+(first is the current state) **via the dispatch function**.
+
+> ** Whenever an 'action dispatch' happens useReducer will run the reducer function to update the state**.
+> The **new state** is the **result** of calling the **reducer function**.
+
+An example for a dispatch function would look like i.e.:
+
+```javascript
+const handleClick = () => {
+  dispatch({ type: "updated_user" });
+  // ...
+};
+```
+
+The industry consensus on how an _action_ object should look like is i.e. the following:
+
+- it could be any type, but by convention it is an object (usually)
+- with a type property for identification
+- also other, optional, properties for more info
+
+```javascript
+const action = {
+  type: "updated_user",
+  firstName: "Penny",
+  // ...
+};
+```
+
+- the _dispatch function_ has no return value
+- it only updates the state for the next render
+- re-render only happens if the provided value is different from the current state (Object.is comparison)
+
+To avoid spelling errors action types can be assigned to constants  
+(usecase: i.e. when dispatching actions from many different files)
+
+```javascript
+const UPDATED_USER = "updated_user";
+const action = {
+  type: UPDATED_USER,
+  // ...
+};
+```
+
+---
+
+[[winc-academy-notes.front-end-course]]
