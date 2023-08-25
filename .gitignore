@@ -5,3 +5,4 @@ seeds
 .next
 docs
 .backup
+package-lock.json
