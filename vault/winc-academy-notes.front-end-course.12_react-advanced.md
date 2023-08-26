@@ -6,6 +6,10 @@ updated: 1692519820890
 created: 1692450149764
 ---
 
+## TOC
+
+main section header links here
+
 ## 01. Debugging & Error Boundaries
 
 ### Errors and Warnings
@@ -1082,6 +1086,33 @@ const action = {
 };
 ```
 
----
+#### Practical EXAMPLE for a reducer - shopping cart with several actions:
 
-[[winc-academy-notes.front-end-course]]
+Write _actions_ to handle items
+
+```javascript
+/**
+* actions
+*/
+const addItemAction = {
+    type: ‘added_item’,
+  // name and quantity is determined by the user
+    name: ‘broccoli’,
+    quantity: 1
+};
+
+// for the next two action we only pass-in 'itemId'
+// no need for other info
+const removeItemAction = {
+    type: ‘removed_item’,
+    itemId: 1
+};
+
+const checkOffItemAction = {
+    type: ‘checked_off_item’,
+    itemId: 2
+};
+```
+
+| [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.11_react-basics]] | [[\ next \]] | [[\ TOC \|winc-academy-notes.front-end-course.12_react-advanced#toc]] |
+| :---------------------------------------------------- | :-------------------------------------------------------------------: | :----------: | :-------------------------------------------------------------------: |
