@@ -481,7 +481,7 @@ const UserName = () => {
 
 ## 05. Hooks
 
-[**Documentation**](https://react.dev/reference/react)---
+[**Documentation**](https://react.dev/reference/react)
 
 Hooks let us use different React features from our components. We can use built-in hooks or we can combine them to make custom ones.
 Hooks are - constrained - functions:
@@ -1274,5 +1274,5 @@ export const ShoppingList = () => {
 };
 ```
 
-| [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.11_react-basics]] | [ \ next \ ](#) | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced#overview]] |
+| [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.11_react-basics]] | _end-of-course_ | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced#overview]] |
 | :---------------------------------------------------- | :-------------------------------------------------------------------: | :-------------: | :-----------------------------------------------------------------------------: |
