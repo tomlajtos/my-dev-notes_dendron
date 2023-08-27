@@ -8,11 +8,17 @@ created: 1692450149764
 
 ## Overview
 
-[[01. Debugging & Error Boundaries|winc-academy-notes.front-end-course.12_react-advanced#01-debugging--error-boundaries]]
-[[02. Forms|winc-academy-notes.front-end-course.12_react-advanced#02-forms]]
-[[03. Component Composition|winc-academy-notes.front-end-course.12_react-advanced#03-component-composition]]
-[[04. Context|winc-academy-notes.front-end-course.12_react-advanced#04-context]]
-[[05. Hooks|winc-academy-notes.front-end-course.12_react-advanced#05-hooks]]
+<details>
+
+  <summary>Toggle section links</summary>
+
+[[01. Debugging & Error Boundaries|winc-academy-notes.front-end-course.12_react-advanced#01-debugging--error-boundaries]]  
+ [[02. Forms|winc-academy-notes.front-end-course.12_react-advanced#02-forms]]  
+ [[03. Component Composition|winc-academy-notes.front-end-course.12_react-advanced#03-component-composition]]  
+ [[04. Context|winc-academy-notes.front-end-course.12_react-advanced#04-context]]  
+ [[05. Hooks|winc-academy-notes.front-end-course.12_react-advanced#05-hooks]]
+
+</details>
 
 ## 01. Debugging & Error Boundaries
 
@@ -119,7 +125,7 @@ export const ControlledInputForm = () => {
   };
 
   const handleSubmit = (event) => {
-    event.preventDeafault(); // prevents default HTML form behavior
+    event.preventDefault(); // prevents default HTML form behavior
     console.log(event); // logs the user input
   };
 
@@ -1051,6 +1057,7 @@ only argument to the dispatch function. The _action_ will be **provided to the r
 
 > ** Whenever an 'action dispatch' happens useReducer will run the reducer function to update the state**.
 > The **new state** is the **result** of calling the **reducer function**.
+> The reducer should **never mutate** the current state, but should return a new state insted.
 
 An example for a dispatch function would look like i.e.:
 
@@ -1096,7 +1103,7 @@ Write _actions_ to handle items
 
 ```javascript
 /**
-* actions
+* Action examples
 */
 const addItemAction = {
     type: ‘added_item’,
@@ -1115,6 +1122,155 @@ const removeItemAction = {
 const checkOffItemAction = {
     type: ‘checked_off_item’,
     itemId: 2
+};
+
+/**
+* State example
+* (state arg., or next state returned by the reducer)
+*/
+const shoppingListState = [
+  {
+    name: "broccoli",
+    quantity: 1,
+    checked: false,
+    itemIs: 1,
+  },
+  {
+    name: "apples",
+    quantity: 5,
+    checked: false,
+    itemIs: 2,
+  },
+  ...
+];
+
+
+/**
+* Reducer:
+* (i.e. shoppingListReducer.js)
+* use a switch statement inside (useful with high number of actions)
+*/
+export const shoppingListReducer = (state, action) => {
+  switch(action, type) { // `break` is not needed since each case returns
+    case "added_item": {
+      const lastItem = state.at(-1);
+      const newItemId = lastItem ? lastItem.itemId + 1 : 1
+      const item = {
+        name: action.name,
+        quantity: action.quantity,
+        checked: false,
+        itemId: newItemId
+      };
+      return [...state, item]; // return a new state objecy with `...`, to keep the function pure
+      // spreading the state results a shallow copy only, better to use a deep clone
+      // if the obj is more complex [https://developer.mozilla.org/en-US/docs/Glossary/Deep_copy]
+    }
+    case "removed_item":
+      // filter out the element with `itemId` matching the `itemId` in the action
+      return state.filter((item) => item.itemId !== action.itemId);
+    case "checked_off_item":
+      // find and copy items with matching `itemId` set `checked: true` in the copy
+      return state.map((item) => {
+        if(item.itmeId === action.itemId) {
+          return {
+            ...item,
+            checked: true
+          }
+        };
+        return item;
+      });
+    default:
+      return state;
+  }
+}
+```
+
+:warning: **REMINDER: keep reducers pure**  
+If a current state is mutated, it is likely that components that are using the state will not recognize
+that it's been changed and will render inacurate information.
+
+#### Practical example for useReducer - Fetching Data
+
+```javascript
+/**
+ * Create a Shopping list component with useReducer
+ * i.e. ShoppingList.jsx
+ */
+
+import { useReducer } from "react";
+import { shoppingListReducer } from "./shoppingListReducer";
+
+export const ShoppingList = () => {
+  const [state, dispatch] = useReducer(shoppingListReducer, [
+    {
+      // initial state (the first item in the list)
+      name: "broccoli",
+      quantity: 1,
+      chacked: false,
+      itemId: 1,
+    },
+  ]);
+
+  // dispatch function for "added_item" action
+  const addItem = (event) => {
+    event.preventDefault();
+    dispatch({
+      // action obj as arg for dispatch
+      type: "added_item",
+      name: event.target.elements.name.value,
+      quantity: Number(event.target.elements.quantity.value),
+    });
+  };
+
+  // dispatch function for "checked_off_item" action
+  const checkItem = (itemId) => {
+    dispatch({
+      type: "checked_off_item",
+      itemId,
+    });
+  };
+
+  // dispatch function for "removed_item" action
+  const removeItem = (itemId) => {
+    dispatch({
+      type: "removed_item",
+      itemId,
+    });
+  };
+
+  return (
+    <>
+      <h1>My Shopping List</h1>
+
+      {/* Add a form to make it interactive */}
+      <form onSubmit={addItem}>
+        <label htmlFor={"name"}>name:</label>
+        <input type={"text"} name={"name"} />
+        <label htmlFor={"quantity"}>quantity:</label>
+        <input type={"number"} name={"quantity"} step={1} min={1} />
+        <button type={"submit"}>Add Item</button>
+      </form>
+
+      <ul>
+        {/* Render list items */}
+        {state.map((item) => (
+          <li key={item.itemId}>
+            {/* add checkbox to toggle checked status */}
+            <input
+              type={"checkbox"}
+              checked={item.checked}
+              onChange={() => checkItem(item.itemId)}
+            />
+            {item.quantity} * {item.name}
+            {/* add delete button */}
+            <button type={"button"} onClick={() => removeItem(item.itemId)}>
+              X
+            </button>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
 };
 ```
 
