@@ -815,5 +815,5 @@ export const ShoppingList = () => {
 };
 ```
 
-| [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.11_react-basics]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.05_hooks]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.05_hooks#overview]] |
-| :---------------------------------------------------- | :-------------------------------------------------------------------: | :--------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: |
+| [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.12_react-advanced.04_context]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.06_state-management]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.05_hooks#overview]] |
+| :---------------------------------------------------- | :--------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: |

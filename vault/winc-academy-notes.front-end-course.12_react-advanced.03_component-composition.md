@@ -148,5 +148,5 @@ const ComponentFour = ({setterFn}) => {
 };
 ```
 
-| [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.11_react-basics]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.03_component-composition]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.03_component-composition#overview]] |
-| :---------------------------------------------------- | :-------------------------------------------------------------------: | :------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------: |
+| [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.12_react-advanced.02_forms]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.04_context]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.03_component-composition#overview]] |
+| :---------------------------------------------------- | :------------------------------------------------------------------------------: | :----------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------: |

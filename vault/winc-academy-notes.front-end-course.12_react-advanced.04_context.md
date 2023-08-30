@@ -210,5 +210,5 @@ const UserName = () => {
 
 :bangbang: The custom Provider (contains the state management) and the custom Hook helps to separate business logic from UI and helps with debugging as well.
 
-| [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.11_react-basics]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.04_context]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.04_context#overview]] |
-| :---------------------------------------------------- | :-------------------------------------------------------------------: | :----------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: |
+| [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.12_react-advanced.03_component_composition]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.05_hooks]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.04_context#overview]] |
+| :---------------------------------------------------- | :----------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: |

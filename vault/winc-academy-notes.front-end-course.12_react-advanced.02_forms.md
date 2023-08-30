@@ -71,5 +71,5 @@ i.e.:
 - [ React Hook Form ](https://react-hook-form.com/)
 - [ RJSF ](https://github.com/rjsf-team/react-jsonschema-form)
 
-| [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.11_react-basics]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.02_forms]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.02_forms#overview]] |
-| :---------------------------------------------------- | :-------------------------------------------------------------------: | :--------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: |
+| [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.12_react-advanced.01_debugging-and-error-boundaries]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.03_component-composition]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.02_forms#overview]] |
+| :---------------------------------------------------- | :-------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: |

@@ -88,5 +88,5 @@ Resources:
 - [Vitest](https://vitest.dev/)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
 
-| [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.11_react-basics]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.01_debugging-and-error-boundaries]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.01_debugging-and-error-boundaries#overview]] |
-| :---------------------------------------------------- | :-------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------: |
+| [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.11_react-basics]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.02_forms]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.01_debugging-and-error-boundaries#overview]] |
+| :---------------------------------------------------- | :-------------------------------------------------------------------: | :--------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------: |
