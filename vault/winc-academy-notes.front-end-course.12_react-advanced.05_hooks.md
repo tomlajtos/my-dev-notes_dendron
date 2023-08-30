@@ -15,9 +15,10 @@ created: 1693384509387
 [[05.01.02. useRef (lets us reference a value that’s not needed for rendering)|winc-academy-notes.front-end-course.12_react-advanced.05_hooks#050102-useref-lets-us-reference-a-value-thats-not-needed-for-rendering]]  
 [[05.01.03. useEffect|winc-academy-notes.front-end-course.12_react-advanced.05_hooks#050103-useeffect]]  
 [[05.02. Custom Hooks|winc-academy-notes.front-end-course.12_react-advanced.05_hooks#0502-custom-hooks]]  
-[[Exercise: Create a custom hook to store values in the browser's local storage|winc-academy-notes.front-end-course.12_react-advanced.05_hooks#exercise-create-a-custom-hook-to-store-values-in-the-browsers-local-storage]]  
-[[Practical EXAMPLE for a reducer - shopping cart with several actions:|winc-academy-notes.front-end-course.12_react-advanced.05_hooks#practical-example-for-a-reducer---shopping-cart-with-several-actions]]  
-[[Practical example for useReducer - Fetching Data|winc-academy-notes.front-end-course.12_react-advanced.05_hooks#practical-example-for-usereducer---fetching-data]]
+[[05.02. Exercise: Create a custom hook to store values in the browser's local storage|winc-academy-notes.front-end-course.12_react-advanced.05_hooks#exercise-create-a-custom-hook-to-store-values-in-the-browsers-local-storage]]  
+[[05.03. useReducer hook|winc-academy-notes.front-end-course.12_react-advanced.05_hooks#0503-usereducer-hook]]--
+[[05.03. Practical EXAMPLE for a reducer - shopping cart with several actions:|winc-academy-notes.front-end-course.12_react-advanced.05_hooks#practical-example-for-a-reducer---shopping-cart-with-several-actions]]  
+[[05.03. Practical example for useReducer - Fetching Data|winc-academy-notes.front-end-course.12_react-advanced.05_hooks#practical-example-for-usereducer---fetching-data]]
 
 </details>
 
