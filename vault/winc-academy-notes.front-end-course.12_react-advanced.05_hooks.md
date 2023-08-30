@@ -2,7 +2,7 @@
 id: 1lcv3431ykvk915b9wx62n8
 title: 05. Hooks
 desc: "course: FE > module: React Advanced > topic: Hooks"
-updated: 1693386753359
+updated: 1693389895944
 created: 1693384509387
 ---
 
@@ -16,7 +16,7 @@ created: 1693384509387
 [[05.01.03. useEffect|winc-academy-notes.front-end-course.12_react-advanced.05_hooks#050103-useeffect]]  
 [[05.02. Custom Hooks|winc-academy-notes.front-end-course.12_react-advanced.05_hooks#0502-custom-hooks]]  
 [[05.02. Exercise: Create a custom hook to store values in the browser's local storage|winc-academy-notes.front-end-course.12_react-advanced.05_hooks#exercise-create-a-custom-hook-to-store-values-in-the-browsers-local-storage]]  
-[[05.03. useReducer hook|winc-academy-notes.front-end-course.12_react-advanced.05_hooks#0503-usereducer-hook]]--
+[[05.03. useReducer hook|winc-academy-notes.front-end-course.12_react-advanced.05_hooks#0503-usereducer-hook]]  
 [[05.03. Practical EXAMPLE for a reducer - shopping cart with several actions:|winc-academy-notes.front-end-course.12_react-advanced.05_hooks#practical-example-for-a-reducer---shopping-cart-with-several-actions]]  
 [[05.03. Practical example for useReducer - Fetching Data|winc-academy-notes.front-end-course.12_react-advanced.05_hooks#practical-example-for-usereducer---fetching-data]]
 
