@@ -51,5 +51,31 @@ Need and personal/team preference are the main considerations when it comes to c
 - some learning curve
 - writing immutable code could be quite complicated when working with deep state objects
 
+## MobX
+
+[MobX Documentation](https://mobx.js.org/README.html)
+
+This library also works independently from React, but it is common practice to use them together
+
+Design objective: "to manage state independently of any UI abstractions" _([michael.codes - UI as an Afterthought](https://michel.codes/blogs/ui-as-an-afterthought))_  
+**MobX** uses the **observable state** pattern.
+It is a data structure to which we can subscribe, in other words, which we can _observe_.
+
+We wrap our component in an observer (provided by the library in form of a _React bindings package_),
+which is a Higher-Order Component (a **function** that takes a **component** and returns a **new component**).
+It uses the **observable** _decorator_ or **observable** functions in order to track objects (and it's state).
+
+**PROS**
+
+- truly reactive, updated state will cause a re-render of components that are consuming the state
+- no need for actions/reducers > we simply modify the state
+- less code
+
+**CONS**
+
+- not as widely used as other libraries (i.e. Redux)
+- inner workings are mostly hidden / to much abstraction makes it harder to understand (less code though)
+- uses some new features of JS that are not supported in older browsers
+
 | [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.11_react-basics]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.07]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.06_state-management#overview]] |
 | :---------------------------------------------------- | :-------------------------------------------------------------------: | :--------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------: |
