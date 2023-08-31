@@ -6,12 +6,14 @@ updated: 1693384378676
 created: 1693383923059
 ---
 
+## Overview
+
 <details>
 
   <summary>Toggle section links</summary>
 
-[[Errors and Warnings|winc-academy-notes.front-end-course.12_react-advanced.01_debugging-and-error-boundaries#errors-and-warnings]]
-[[Error Boundaries|winc-academy-notes.front-end-course.12_react-advanced.01_debugging-and-error-boundaries#error-boundaries]]
+[[Errors and Warnings|winc-academy-notes.front-end-course.12_react-advanced.01_debugging-and-error-boundaries#errors-and-warnings]]  
+[[Error Boundaries|winc-academy-notes.front-end-course.12_react-advanced.01_debugging-and-error-boundaries#error-boundaries]]  
 [[Testing React Components|winc-academy-notes.front-end-course.12_react-advanced.01_debugging-and-error-boundaries#testing-react-components]]
 
 </details>

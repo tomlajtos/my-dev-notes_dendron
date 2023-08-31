@@ -6,12 +6,19 @@ updated: 1693384774785
 created: 1693384707581
 ---
 
+## Overview
+
 <details>
 
   <summary>Toggle section links</summary>
 
+[[Redux and Redux Toolkit|winc-academy-notes.front-end-course.12_react-advanced.06_state-management#redux-and-redux-toolkit]]  
+[[MobX|winc-academy-notes.front-end-course.12_react-advanced.06_state-management#mobx]]  
+[[XState|winc-academy-notes.front-end-course.12_react-advanced.06_state-management#xstate]]
+
 </details>
 
+<br/>
 This is just a brief touch upon the topic of state libraries.
 Need and personal/team preference are the main considerations when it comes to choosing a state management library.
 
@@ -76,6 +83,8 @@ It uses the **observable** _decorator_ or **observable** functions in order to t
 - not as widely used as other libraries (i.e. Redux)
 - inner workings are mostly hidden / to much abstraction makes it harder to understand (less code though)
 - uses some new features of JS that are not supported in older browsers
+
+## XState
 
 | [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.11_react-basics]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.07]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.06_state-management#overview]] |
 | :---------------------------------------------------- | :-------------------------------------------------------------------: | :--------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------: |

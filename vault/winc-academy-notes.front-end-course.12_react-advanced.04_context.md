@@ -6,15 +6,17 @@ updated: 1693384658696
 created: 1693384478409
 ---
 
+## Overview
+
 <details>
 
   <summary>Toggle section links</summary>
 
-[[The Context API|winc-academy-notes.front-end-course.12_react-advanced.04_context#the-context-api]]
-[[Creating Context (createContext function from React)|winc-academy-notes.front-end-course.12_react-advanced.04_context#creating-context-createcontext-function-from-react]]
-[[Providing Context|winc-academy-notes.front-end-course.12_react-advanced.04_context#providing-context]]
-[[Using Context|winc-academy-notes.front-end-course.12_react-advanced.04_context#using-context]]
-[[Multiple Contexts|winc-academy-notes.front-end-course.12_react-advanced.04_context#multiple-contexts]]
+[[The Context API|winc-academy-notes.front-end-course.12_react-advanced.04_context#the-context-api]]  
+[[Creating Context (createContext function from React)|winc-academy-notes.front-end-course.12_react-advanced.04_context#creating-context-createcontext-function-from-react]]  
+[[Providing Context|winc-academy-notes.front-end-course.12_react-advanced.04_context#providing-context]]  
+[[Using Context|winc-academy-notes.front-end-course.12_react-advanced.04_context#using-context]]  
+[[Multiple Contexts|winc-academy-notes.front-end-course.12_react-advanced.04_context#multiple-contexts]]  
 [[Best Practices|winc-academy-notes.front-end-course.12_react-advanced.04_context#best-practices]]
 
 </details>

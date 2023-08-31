@@ -6,11 +6,13 @@ updated: 1693384634461
 created: 1693384259191
 ---
 
+## Overview
+
 <details>
 
   <summary>Toggle section links</summary>
 
-[[Prop Drilling|winc-academy-notes.front-end-course.12_react-advanced.03_component-composition#prop-drilling]]
+[[Prop Drilling|winc-academy-notes.front-end-course.12_react-advanced.03_component-composition#prop-drilling]]  
 [[Composing Components|winc-academy-notes.front-end-course.12_react-advanced.03_component-composition#composing-components]]
 
 </details>
