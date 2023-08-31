@@ -86,5 +86,33 @@ It uses the **observable** _decorator_ or **observable** functions in order to t
 
 ## XState
 
+[XState Docs - new](https://stately.ai/docs/state-machines-and-statecharts)
+[XState Docs](https://xstate.js.org/docs/about/concepts.html#finite-state-machines)
+[XState visualizer Docs](https://stately.ai/viz)
+
+It utilizes the CS concepts of '_state machines_' and '_state charts_'
+This JS/TS library helps to create, interpret and execute these concepts
+and also helps to manage invocations of state machines as _actors_
+
+- State machines: they model the application logic (a mathematical model of computation), how a process goes from state to state
+- State charts: fancy state machines for more complex logic, a flow chart like visual extensions to state machines
+
+**PROS**
+
+- simple API to represent states and state transitions
+- makes it easy to handle complex logic
+- the visualizer is a useful tool for debugging and for creating documentation
+- strong theoretical basis in math (finite state machines)
+- it is easier to spot problems in state machines compared to other state management concepts (like in Redux)
+
+**CONS**
+
+- it is not easy to think within the concept of state machines
+- when many things are happening the definitions can get extensive
+
+## Recoil
+
+It is a library developed alongside React by Meta
+
 | [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.11_react-basics]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.07]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.06_state-management#overview]] |
 | :---------------------------------------------------- | :-------------------------------------------------------------------: | :--------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------: |
