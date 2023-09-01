@@ -2,7 +2,7 @@
 id: xlidt4nqfa4ai0e9rwzmysl
 title: 06. State Management
 desc: "course: FE > module: React Advanced > topic: State Management"
-updated: 1693384774785
+updated: 1693578641735
 created: 1693384707581
 ---
 
@@ -112,7 +112,24 @@ and also helps to manage invocations of state machines as _actors_
 
 ## Recoil
 
-It is a library developed alongside React by Meta
+It is a library developed alongside React by Meta - still in beta
 
-| [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.11_react-basics]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.07]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.06_state-management#overview]] |
-| :---------------------------------------------------- | :-------------------------------------------------------------------: | :--------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------: |
+- Utilizes units of state called **atoms** that can be reused everywhere in the app
+- simillar syntax to the useState hook
+  To get derived data from atoms it uses **selectors**
+- the components can subscribe to both _atoms_ and _selectors_
+- if values are updated in any of those a re-render will be triggered
+
+**PROS**
+
+- react-like API (similar to useState hook)
+- performance oriented design
+- works with latest features of React
+
+**CONS**
+
+- still no stable version
+- small dev community
+
+| [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.11_react-basics]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.06_state-management#overview]] |
+| :---------------------------------------------------- | :-------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------: |
