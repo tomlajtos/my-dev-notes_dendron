@@ -2,7 +2,7 @@
 id: 1lcv3431ykvk915b9wx62n8
 title: 05. Hooks
 desc: "course: FE > module: React Advanced > topic: Hooks"
-updated: 1693389895944
+updated: 1693580919755
 created: 1693384509387
 ---
 
@@ -373,7 +373,7 @@ Resources to concepts/tools used in coresponding exercises:
 [ scrollIntoView() method ](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView)  
 [ scroll usecases (recommended blog from the module)](https://codefrontend.com/scroll-to-element-in-react/)
 
-### 05.01.03. useEffect
+### 05.01.03. useEffect ^useEffect_desc
 
 [**documentation**](https://react.dev/learn/synchronizing-with-effects)  
 [**when not to use effects**](https://react.dev/learn/you-might-not-need-an-effect)
