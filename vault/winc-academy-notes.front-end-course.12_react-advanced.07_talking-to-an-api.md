@@ -28,17 +28,58 @@ A good option to handle such task is to use the [[useEffect|winc-academy-notes.f
 
 **Example** - social media app - show a list of friends
 
+- we have to make the request before we can render anything (async - Module 10)
+- we have to nest an async function within the useEffect (we cant use async directly in useEffect,  
+  async returns a promise and useEffect can only return a cleanup function, nothing else)
+- we have to call the nested async function from the useEffect hook
+
 ```javascript
 useEffect(() => {
   async function fetchData() {
     const response = await fetch(
       "https://www.my-antisocial-network.com/api/friends",
     );
-    const json = await response.json();
+    const json = await response.json(); // convert response to JSON
     console.log(json);
   }
   fetchData();
+  // empty dep. array ensueres that the effect only runs once >> request is sent only once
+  // when the component is first loaded
+}, []);
+```
+
+### Keeping the data state
+
+**Same example as before - extended**
+
+- since we're fetching data inside a component, it is logical to keep it in the local state  
+  (if fetched data is used in other components too, it is better to use a state management solution)
+- since we have the data saved in the component's state we can render the `friendsList` value
+
+```javascript
+const [friendsList, setFriendsList] = useState([]);
+
+useEffect(() => {
+  async function fetchData() {
+    const response = await fetch(
+      "https://www.my-antisocial-network.com/api/friends",
+    );
+    const json = await response.json(); // convert response to JSON
+    setFriendsList(friends);
+  }
+  fetchData();
 });
+
+return (
+  <div className="App">
+    <h1>Friends</h1>
+    <ul>
+      {friendsList.map((friend) => (
+        <li key={friend.id}>{friend.name}</li>
+      ))}
+    </ul>
+  </div>
+);
 ```
 
 | [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.11_react-basics]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.08]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api#overview]] |
