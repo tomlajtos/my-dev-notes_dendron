@@ -122,5 +122,46 @@ We also have to **reset the state holding the data** each time the corresponding
 See line `setPost([]);` in the example code above. If the request takes long we will not show
 stale data (i.e. posts from the prev user) in the app.
 
-| [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.11_react-basics]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.08]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api#overview]] |
-| :---------------------------------------------------- | :-------------------------------------------------------------------: | :--------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: |
+> Caching make sense when the user navigates frequently around the app. It will reduce the amount of
+> request we'd need to make. Fetching libraries usually include mechanisms for caching as well
+> (could be complicate it to implement it on our own; _comes later in the module material_).
+
+## Sending a create or update request
+
+> A common mistake when it comes to handling requests for updating data or adding data is to put everything in
+> local state and send a `POST` or `PATCH` request with useEffect when the user submits or changes a value.
+>
+> **This should be done within the event handlers since they have all the necessary data.**
+
+**Example to show how this should be done** (liking a post in the demo social app):
+
+```javascript
+const likePost = (postId) => {
+  // POST request, the expected format of the request body is determined by the server
+  fetch("https://my-antisocial-network.com/api/like", {
+    method: "POST",
+    body: JSON.stringify({
+      postId,
+      userId: myUserId,
+    }),
+  });
+};
+
+return (
+  <>
+    <h1>Posts</h1>
+    <ul>
+      {posts.map((post) => (
+        <li key={post.id}>
+          <h2>{post.title}</h2>
+          <p>{post.body}</p>
+          <button onClick={() => likePost(post.id)}>Like!</button>
+        </li>
+      ))}
+    </ul>
+  </>
+);
+```
+
+| [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.12_react-advanced.06_state-management]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.08]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api#overview]] |
+| :---------------------------------------------------- | :-----------------------------------------------------------------------------------------: | :--------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: |
