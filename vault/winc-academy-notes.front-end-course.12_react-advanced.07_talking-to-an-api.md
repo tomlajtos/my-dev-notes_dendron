@@ -19,7 +19,7 @@ created: 1693578489006
 **Related:** [[Module 10 - Talking to the Back-end|winc-academy-notes.front-end-course.10_talking-to-the-back-end]]
 
 In React it is important to know that at what point and in which component we should make/trigger our request.
-We also have to be careful with component rendering > so wi would not overload the server we're making the request to
+We also have to be careful with component rendering > so we would not overload the server we're making the request to
 
 ## Requesting data and keeping it in state
 
@@ -81,6 +81,46 @@ return (
   </div>
 );
 ```
+
+## Sending new requests after changing a prop
+
+Since requests are asynchronous the order of requests (if multiple were made) could be different than the order
+of responses we receive for them. We have to make sure that irrelevant fetch requests are ignored. _(It is not possible to
+to undo a network request, so the response from an older request could overwrite the data of the current request if
+we do nothing about it.)_
+
+> We can use an **ignore flag** to make sure that outdated responses will not be shown.
+> This flag is set in the cleanup function.
+
+```javascript
+const [posts, setPosts] = useState([]);
+
+useEffect(() => {
+  let ignore = false;
+  setPosts([]); // reset the state
+
+  async function fetchData() {
+    const response = await fetch(
+      `http://www.my-antisocial-network.com/api/friends/${friendId}/posts`,
+    );
+    const posts = await response.json();
+    if (!ignore) {
+      setPosts(posts);
+    }
+  }
+  fetchData();
+
+  // when the friendId changes the cleanup function runs first and sets
+  // ignore to 'true' > if a response comes back after this it will be ignored
+  return () => {
+    ignore = true;
+  };
+}, [friendId]);
+```
+
+We also have to **reset the state holding the data** each time the corresponding prop value changes.
+See line `setPost([]);` in the example code above. If the request takes long we will not show
+stale data (i.e. posts from the prev user) in the app.
 
 | [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.11_react-basics]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.08]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api#overview]] |
 | :---------------------------------------------------- | :-------------------------------------------------------------------: | :--------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: |
