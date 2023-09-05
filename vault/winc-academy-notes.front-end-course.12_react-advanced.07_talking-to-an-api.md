@@ -163,5 +163,71 @@ return (
 );
 ```
 
+As for logic to store and show the status of our likes let's assume the following:
+
+- each post object has a '_likedBy_' property
+- this prop contains an array of userId-s of those who liked the post
+- when we like a post our userId shuld be added to this array and so on
+
+```javascript
+/**
+ * previos example, extended with the logic for likes,
+ * check if the response is ok > add myUserId to likedBy prop of post
+ */
+const likePost = (postId) => {
+  // POST request, the expected format of the request body is
+  // determined by the server
+  fetch("https://my-antisocial-network.com/api/like", {
+    method: "POST",
+    body: JSON.stringify({
+      postId,
+      userId: myUserId,
+    }),
+  });
+
+  // add myUserId to the likedBy prop a of the matching post
+  if (like.ok) {
+    setPosts((posts) =>
+      posts.map((post) => {
+        if (post.id === postId) {
+          post.likedBy = [...post.likedBy, myUserId];
+        }
+        return post;
+      }),
+    );
+  }
+};
+
+// ...
+
+// IF myUserId is in the likedBy array THEN show Unlike button ELSE show the
+// Like button | here we assume that there is an unlikePost function as well
+return (
+  <>
+    <h1>Posts</h1>
+    <ul>
+      {posts.map((post) => (
+        <li key={post.id}>
+          <h2>{post.title}</h2>
+          <p>{post.body}</p>
+          {post.likedBy.includes(myUserId) ? (
+            <button onClick={() => likePost(post.id)}>Unlike!</button>
+          ) : (
+            <button onClick={() => likePost(post.id)}>Like!</button>
+          )}
+        </li>
+      ))}
+    </ul>
+  </>
+);
+```
+
+PATCH, PUT and DELETE methods in React are handled the same way as the fetch example above.
+**Only the GET request (reading) is done inside an effect.**
+
+> **Exception**: i.e. a POST for a logging service (track page hits etc.), since _it does not originate from a user action_
+> Simple rule: if the request is the result of a user action **use an event handler**, if it should be the result
+> of rendering a component, **use the useEffect hook** like with a GET request.
+
 | [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.12_react-advanced.06_state-management]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.08]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api#overview]] |
 | :---------------------------------------------------- | :-----------------------------------------------------------------------------------------: | :--------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: |
