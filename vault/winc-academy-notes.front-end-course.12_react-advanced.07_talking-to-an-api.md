@@ -258,7 +258,7 @@ useEffect(() => {
   retutrn () => {
     ignore = true;
   };
-}, [friend]);
+}, [friendId]);
 
 return isLoading ? (
   <h1>Loading...</h1>
@@ -268,6 +268,61 @@ return isLoading ? (
 ```
 
 `isLoading` _is initialized to `false` so when no friend is selected it will not show the loading state to the user_
+
+## Implement an 'Error state'
+
+- useful when our request fails for some reason (i.e. server error, authorization error, connection error)
+- again, it is good practice to show an informative message to the user about what went wrong
+
+```javascript
+// ...
+const [error, setError] = useState(null);
+
+const useEffect(() => {
+  let ignore = false;
+  setPosts([]);
+  setError(null); // important to reset the error state
+  setIsLoading(true);
+
+  async function fetchData() {
+    const response = await fetch(
+      `https://www.my-antisocial-network.com/friends/${friendId}/posts`,
+    );
+    if(response.ok) {
+      const posts = await response.json();
+      if(!ignore) {
+        setPosts(posts);
+        setIsLoading(false);
+      }
+    } else {
+        setError(`Something went wrong: ${response.statusText}`);
+    }
+  }
+
+  fetchData();
+  return () => {
+    ignore = true;
+  }
+},[friendId]);
+
+// use conditional rendering (i.e. if-block, better than nested ternary
+// operators which can be hard to read) tho show the error to the user
+
+if (error) {
+  return (<h1>Error message...</h1>)
+}
+if (isLoading) {
+  return (<h1>Loading...</h1>)
+}
+
+return (
+// JSX...
+)
+```
+
+- initialize the error state to `null`
+- if response prop is not **ok** >> set the error state
+- reset the error state (at the top of `useEffect`, not in the cleanup function)
 
 | [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.12_react-advanced.06_state-management]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.08]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api#overview]] |
 | :---------------------------------------------------- | :-----------------------------------------------------------------------------------------: | :--------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: |
