@@ -229,5 +229,45 @@ PATCH, PUT and DELETE methods in React are handled the same way as the fetch exa
 > Simple rule: if the request is the result of a user action **use an event handler**, if it should be the result
 > of rendering a component, **use the useEffect hook** like with a GET request.
 
+## Add (and display) a 'loading state'
+
+The best and simplest way to let the user know that something is happening in the background
+
+```javascript
+const [posts, setPosts] = useState([]);
+const[(isLoading, setIsLoading)] = useState(false);
+
+useEffect(() => {
+  let ignore = false;
+  setPosts([]);
+  setIsLoading(true);
+
+  async function fetchData() {
+    const response = await fetch(
+      `https://www.my-antisocial-network.com/friends/${friendId}/posts`,
+    );
+
+    const posts = await response.json();
+    if(!ignore) {
+      setPosts(posts);
+      setIsLoading(false);
+    }
+  }
+
+  fetchData();
+  retutrn () => {
+    ignore = true;
+  };
+}, [friend]);
+
+return isLoading ? (
+  <h1>Loading...</h1>
+) : (
+  // rest of JSX...
+)
+```
+
+`isLoading` _is initialized to `false` so when no friend is selected it will not show the loading state to the user_
+
 | [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.12_react-advanced.06_state-management]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.08]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api#overview]] |
 | :---------------------------------------------------- | :-----------------------------------------------------------------------------------------: | :--------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: |
