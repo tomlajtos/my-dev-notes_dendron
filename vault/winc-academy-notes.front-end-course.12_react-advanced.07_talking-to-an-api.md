@@ -372,5 +372,5 @@ front end. It has its own language, hence the name.
 [GraphQL Docs](https://graphql.org/)  
 [Apollo Docs](https://www.apollographql.com/docs/)
 
-| [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.12_react-advanced.06_state-management]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.08_routing]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api#overview]] |
+| [[\ fe notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.12_react-advanced.06_state-management]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.08_routing]] | [[\ overview \|winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api#overview]] |
 | :---------------------------------------------------- | :-----------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: |
