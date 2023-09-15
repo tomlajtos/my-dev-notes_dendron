@@ -12,6 +12,13 @@ created: 1693578489006
 
   <summary>Toggle section links</summary>
 
+[[Requesting data and keeping it in state|winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api#requesting-data-and-keeping-it-in-state]]  
+[[Sending new requests after changing a prop|winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api#sending-new-requests-after-changing-a-prop]]  
+[[Sending a create or update request|winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api#sending-a-create-or-update-request]]  
+[[Add (and display) a 'loading state'|winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api#add-and-display-a-loading-state]]  
+[[Implement an 'Error state'|winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api#implement-an-error-state]]  
+[[Framework oriented solutions for talking to APIs|winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api#framework-oriented-solutions-for-talking-to-apis]]
+
 </details>
 
 <br/>
