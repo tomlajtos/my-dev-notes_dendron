@@ -324,5 +324,53 @@ return (
 - if response prop is not **ok** >> set the error state
 - reset the error state (at the top of `useEffect`, not in the cleanup function)
 
-| [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.12_react-advanced.06_state-management]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.08]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api#overview]] |
-| :---------------------------------------------------- | :-----------------------------------------------------------------------------------------: | :--------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: |
+## Framework oriented solutions for talking to APIs
+
+Extracting necessary logic into a custom hook can work well for smaller applications using similar or low number of endpoints.
+This hook can retutn: loading state, errors and data as state variables while handling API interactions.
+
+For large/complex applications it is recommended to use a React **framework**\* which can take care of data fetching and cashing as well.
+
+\* _the course material uses the terms "framework" and "library" rather confusingly >> figure out what's what..._
+
+### React Query (works w/ REST)
+
+- one of the most common ways to handle data fetching and cashing
+- it is highly configurable on a per-query basis
+- it has a hook available called: **useQuery**
+- **useQuery** returns an object with props like: isLoading, isError, isSuccess, data, error, etc.
+- **useQuery** requires a **queryKey**, a key under which we store query (similar to localStorage)
+- **useQuery** requires a queryFunction as well, which handles the async fetch request
+
+### RTK Query (works w/ REST)
+
+- the logical coice tho use with **Redux** and **Redux Toolkit**
+- interacts with the redux store
+- ensures proper data caching, prevents unnecessary requests
+- good dev experience, but has a bit of a learning curve
+
+### SWR: Stale-While-Revalidate (works w/ REST)
+
+- this approach first returns the data of the prev request, and does the request again in the background
+- updates the DOM if the data in the 2nd request is different to the first (prev - stale) request's data
+- it allows the offload of some of the requests (to be done later)
+- provieds a more fluent (snappy) user experience
+
+### Apollo (works with GraphQL)
+
+GraphQL (by Facebook) is different to REST, itt modells the data in a graph.
+In this graph all the resources are available and we have to specify exectly which data we will need in the
+front end. It has its own language, hence the name.
+
+- GraphQL often stands between a server and a client, provieds a unified API
+- it is the industry standard for apps working with GraphQL servers
+
+**Resources:**
+[React Query Docs](https://tanstack.com/query/v4)  
+[RTK Query Docs](https://redux-toolkit.js.org/rtk-query/overview)
+[SWR Docs](https://swr.vercel.app/)  
+[GraphQL Docs](https://graphql.org/)  
+[Apollo Docs](https://www.apollographql.com/docs/)
+
+| [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.12_react-advanced.06_state-management]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.08_routing]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api#overview]] |
+| :---------------------------------------------------- | :-----------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: |
