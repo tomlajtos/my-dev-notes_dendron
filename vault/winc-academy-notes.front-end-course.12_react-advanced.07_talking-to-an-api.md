@@ -329,7 +329,7 @@ return (
 Extracting necessary logic into a custom hook can work well for smaller applications using similar or low number of endpoints.
 This hook can retutn: loading state, errors and data as state variables while handling API interactions.
 
-For large/complex applications it is recommended to use a React **framework**\* which can take care of data fetching and cashing as well.
+For large/complex applications it is recommended to use a React **framework**(?)\* which can take care of data fetching and cashing as well.
 
 \* _the course material uses the terms "framework" and "library" rather confusingly >> figure out what's what..._
 
