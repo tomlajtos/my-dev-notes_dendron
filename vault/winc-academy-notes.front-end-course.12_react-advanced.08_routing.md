@@ -61,10 +61,105 @@ standard for creating a multi-page UX in a single page application (from the ser
 
 - it is used for mutating (writing) data, i.e. we can use it to submit a form
 - actions are called whenever a _non-get_ request is submitted to our route
-- it does not utilize `event.preventDefault` > it just lets thorough the put or post request\* \* look into this as this is a bit vague
+- it does not utilize `event.preventDefault` > it just lets thorough the put or post request\*
+  > \* look into this as this is a bit vague
 - we can also use the `useSubmit` hook to submit a form
 - actions take an async function and can return a regular response or anything else
 - its data is available via the `useActionData` hook
+
+## Example code to see the concepts in practice (blog with different routes)
+
+The basic app for our example looks like this:
+
+```javascript
+// main.jsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import "./index.css";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+);
+
+// App.jsx
+import { useState } from "react";
+import { PostDetail } from "./PostDetail";
+import { PostList } from "./PostList";
+
+const App = () => {
+  const [selectedPost, setSelectedPost] = useState(null);
+
+  return (
+    <>
+      <PostList setSelectedPost={setSelectedPost} />
+      <PostDetail postId={selectedPost} />
+    </>
+  );
+};
+
+export default App;
+```
+
+> **Installing React Router**: `npm install react-router-dom`
+
+### **Setting up a Router**
+
+We have to create our router and configure with the desired routs as follows:
+
+**React Router** has a variety of **helper functions** to create different kind of routers:  
+i.e `createBrowserRouter`: `BrowserRouter` is the most common router. When the router is created,
+we pass it to the `RouterProvider`.
+
+```javascript
+// main.jsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./index.css";
+
+// this router replicates the base App behavior
+// if the user navigates to 'www.blog.com' > the App element is rendered
+const router = createBrowserRouter([{ path: "/", element: <App /> }]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>,
+);
+```
+
+### Adding Routes
+
+Add two routes: 1, route for _PostList_; 2, route for _PostDetail_
+Remove `<App />` since it is only tracking `seletctedPost` state, URL info will replace that
+
+```javascript
+// main.jsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./index.css";
+
+/* create the two routes to `PostList` and `PostDetail`
+!!! NOTE: postId --> URL-parameter, syntax in path prop: `:param`,
+ awailable inside the component - id of the selected component */
+
+const router = createBrowserRouter([
+  { path: "/", element: <PostList /> },
+  { path: "/post/:postId", element: <PostDetail /> },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>,
+);
+```
 
 | [[\ fe notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.09]] | [[\ overview \|winc-academy-notes.front-end-course.12_react-advanced.08_routing#overview]] |
 | :---------------------------------------------------- | :------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: |
