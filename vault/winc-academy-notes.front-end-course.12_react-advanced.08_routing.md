@@ -161,5 +161,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 );
 ```
 
+> **Related exercise solution on GitHub**
+>
+> [Adding Routes](https://github.com/tomlajtos/fe-exercises-new-winc-course/tree/main/12_react-advanced/08_01_react-router_adding-routes)
+
 | [[\ fe notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.09]] | [[\ overview \|winc-academy-notes.front-end-course.12_react-advanced.08_routing#overview]] |
 | :---------------------------------------------------- | :------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: |
