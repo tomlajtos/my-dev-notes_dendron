@@ -372,7 +372,7 @@ front end. It has its own language, hence the name.
 - GraphQL often stands between a server and a client, provieds a unified API
 - it is the industry standard for apps working with GraphQL servers
 
-**Resources:**
+**Resources:**--
 [React Query Docs](https://tanstack.com/query/v4)  
 [RTK Query Docs](https://redux-toolkit.js.org/rtk-query/overview)
 [SWR Docs](https://swr.vercel.app/)  
