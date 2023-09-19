@@ -165,5 +165,32 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 >
 > [Adding Routes](https://github.com/tomlajtos/fe-exercises-new-winc-course/tree/main/12_react-advanced/08_01_react-router_adding-routes)
 
+### Navigation
+
+To navigate to the right we use a **Link**. This replaces the setter function we used to set the component that was selected:
+
+```javascript
+// setter function example
+post.map((post) => (
+  <li onClick={() => setSelectedPost(post.id)}>{post.title}</li>
+));
+```
+
+The React Router solution:  
+Clicking on the Link component (<a>) will bring us to the selected component with the specific _id_
+Also there is no need to fetch the component based on its id (was passed in as prop), we just
+navigate to the specific path
+
+```javascript
+// React Router Link component, renders an <a> tag
+post.map((post) => (
+  <li>
+    <Link to={`post/${post.id}`}>{post.title}</Link>
+  </li>
+));
+```
+
+### Nested Routes
+
 | [[\ fe notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.09]] | [[\ overview \|winc-academy-notes.front-end-course.12_react-advanced.08_routing#overview]] |
 | :---------------------------------------------------- | :------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: |
