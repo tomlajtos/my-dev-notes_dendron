@@ -192,5 +192,54 @@ post.map((post) => (
 
 ### Nested Routes
 
+Usecase: when we have a parent component, a wrapper for other components which contains elements that should
+render on the pages where we show the content of its child components. (so we can avoid repetition)
+
+For this purpose we create the **root** or **parent** component, and we have to define the routs as **nested routes**
+We also have to use the `<Outlet/>` **component**, that tells React Router where we want to render the components in the child routes.
+Then we need to define routes, where each route object can have a "children" prop with the child routes as its value.
+Example:
+
+```javascript
+// create the root of our routes, use Outlet
+import { Outlet } from "react-router-dom";
+import { RecipeHeader } from "./RecipeHeader";
+import { RecipeFooter } from "./RecipeFooter";
+
+export const RecipeRoot = () => {
+  return (
+    <>
+      <RecipeHeader />
+      <Outlet />
+      <RecipeFooter />
+    </>
+  );
+};
+
+// ----
+
+// define routes
+// ALL of these routes will render a header and a footer
+// and the components of the cild routes between them
+const router = createBrowserRouter([
+  // other routes if any
+  {
+    path: "/recipes",
+    element: <RecipeRoot />,
+    children: [
+      { path: "/", element: <RecipeList /> },
+      { path: "/:recipeId", element: <Recipe /> },
+      { path: "/new", element: <NewRecipe /> },
+    ],
+  },
+]);
+```
+
+> it is possible to **nest routes multiple level deep** (i.e. multiple generic components within each other and finally the specific child components )
+
+> **Related exercise solution on GitHub**
+>
+> [Navigation and Nested Routes](https://github.com/tomlajtos/fe-exercises-new-winc-course/tree/main/12_react-advanced/08_01_react-router_navigation-and-nested-routes)
+
 | [[\ fe notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.09]] | [[\ overview \|winc-academy-notes.front-end-course.12_react-advanced.08_routing#overview]] |
 | :---------------------------------------------------- | :------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: |
