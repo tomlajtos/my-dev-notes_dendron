@@ -239,7 +239,7 @@ const router = createBrowserRouter([
 
 > **Related exercise solution on GitHub**
 >
-> [Navigation and Nested Routes](https://github.com/tomlajtos/fe-exercises-new-winc-course/tree/main/12_react-advanced/08_01_react-router_navigation-and-nested-routes)
+> [Navigation and Nested Routes](https://github.com/tomlajtos/fe-exercises-new-winc-course/tree/main/12_react-advanced/08_02_react-router_navigation-and-nested-routes)
 
 | [[\ fe notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.09]] | [[\ overview \|winc-academy-notes.front-end-course.12_react-advanced.08_routing#overview]] |
 | :---------------------------------------------------- | :------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: |
