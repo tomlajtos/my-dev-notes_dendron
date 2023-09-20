@@ -67,7 +67,7 @@ standard for creating a multi-page UX in a single page application (from the ser
 - actions take an async function and can return a regular response or anything else
 - its data is available via the `useActionData` hook
 
-## Example code to see the concepts in practice (blog with different routes)
+### Example code to refactor and see the concepts in practice (blog with different routes)
 
 The basic app for our example looks like this:
 
@@ -105,7 +105,7 @@ export default App;
 
 > **Installing React Router**: `npm install react-router-dom`
 
-### **Setting up a Router**
+## Setting up a Router
 
 We have to create our router and configure with the desired routs as follows:
 
@@ -132,7 +132,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 );
 ```
 
-### Adding Routes
+## Adding Routes
 
 Add two routes: 1, route for _PostList_; 2, route for _PostDetail_
 Remove `<App />` since it is only tracking `seletctedPost` state, URL info will replace that
@@ -165,7 +165,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 >
 > [Adding Routes](https://github.com/tomlajtos/fe-exercises-new-winc-course/tree/main/12_react-advanced/08_01_react-router_adding-routes)
 
-### Navigation
+## Navigation
 
 To navigate to the right we use a **Link**. This replaces the setter function we used to set the component that was selected:
 
@@ -190,7 +190,7 @@ post.map((post) => (
 ));
 ```
 
-### Nested Routes
+## Nested Routes
 
 Usecase: when we have a parent component, a wrapper for other components which contains elements that should
 render on the pages where we show the content of its child components. (so we can avoid repetition)
@@ -240,6 +240,8 @@ const router = createBrowserRouter([
 > **Related exercise solution on GitHub**
 >
 > [Navigation and Nested Routes](https://github.com/tomlajtos/fe-exercises-new-winc-course/tree/main/12_react-advanced/08_02_react-router_navigation-and-nested-routes)
+
+## Loading Data
 
 | [[\ fe notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.09]] | [[\ overview \|winc-academy-notes.front-end-course.12_react-advanced.08_routing#overview]] |
 | :---------------------------------------------------- | :------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: |
