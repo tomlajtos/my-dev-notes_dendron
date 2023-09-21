@@ -243,5 +243,42 @@ const router = createBrowserRouter([
 
 ## Loading Data
 
+There are two ways to ensure that component loads the correct data
+
+1. We get the key (i.e. postId) from the url params (instead of getting it from the component props)
+   There is a react hook for getting url param values
+
+```javascript
+const { postId } = useParams();
+```
+
+We can use this inside the component where we fetch out data.
+
+2. We can write our own loader  
+   (this is the more conventional solution - also the RECOMMENDED one, for RR v6 at least).
+   To make this work we need to:
+
+- expand the Route object in our router with a `loader` property
+- we can extract the async fetch function from the component and use it directly in the loader
+
+```javascript
+// ... fetchPost function is not shown here
+const router = createBrowserRouter([
+  ...{
+    path: "/post/:postId",
+    element: <PostDetail />,
+    loader: async function loader({ params }) {
+      return fetchPost(params.postId);
+    },
+  },
+]);
+```
+
+Inside the component we can access the data with the `useLoaderData`:
+
+```javascript
+const post = useLoaderData();
+```
+
 | [[\ fe notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.09]] | [[\ overview \|winc-academy-notes.front-end-course.12_react-advanced.08_routing#overview]] |
 | :---------------------------------------------------- | :------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: |
