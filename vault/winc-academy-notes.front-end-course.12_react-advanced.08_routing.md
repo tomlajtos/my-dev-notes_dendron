@@ -280,5 +280,49 @@ Inside the component we can access the data with the `useLoaderData`:
 const post = useLoaderData();
 ```
 
+## Sending data
+
+This is done by React Router `action`-s.
+It allows apps to perform data mutations with simple HTML and HTTP semantics.
+
+> ! `action ` only works with a data router like `createBrowserRouter`
+
+We can use the `Form` component from React Router to send our data to the backend:
+(`Form` is a wrapper around the native HTML <form> element)
+
+- the form will send a **post** (method="post") **request** to the route where this component is displayed
+- to access the input values our `action` will use the name attributes of the input elements in the form
+- within the `action` we can use `request.formData()`, an async function to access the form
+- once the _blog-post_ (in the example) is created we `redirect` to the new _(blog-)post_.
+- we will need to create an new route for this post and hook it up with the `action`
+
+example:
+
+```javascript
+import { redirect } from "react-router-dom";
+import { createPost } from "./api";
+
+export async function newPostAction({ request }) {
+  const formData = await request.formData();
+  // we assume we have a function available to do the request
+  // as `createPost`, the request returns a `newPostId`
+  const { newPostId } = await createPost(
+    formData.get("title"),
+    formData.get("post"),
+  );
+  redirect(`post/${newPostId}`);
+}
+
+// ---
+
+const router = createBrowserRouter([
+  ...{
+    path: "post/new",
+    element: <CreatePost />,
+    action: newPostAction,
+  },
+]);
+```
+
 | [[\ fe notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.12_react-advanced.07_talking-to-an-api]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.09]] | [[\ overview \|winc-academy-notes.front-end-course.12_react-advanced.08_routing#overview]] |
 | :---------------------------------------------------- | :------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: |
