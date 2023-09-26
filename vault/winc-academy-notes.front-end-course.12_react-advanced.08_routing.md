@@ -299,6 +299,21 @@ We can use the `Form` component from React Router to send our data to the backen
 example:
 
 ```javascript
+import { Form } from "react-router-dom";
+
+export const CreatePost = () => {
+  return (
+    <Form method="post">
+      <span>Title:</span>
+      <input type="text" name="title" />
+      <span>Post:</span>
+      <textarea name="post" />
+      <button type="submit">Post!</button>
+    </Form>
+  );
+};
+// ---
+
 import { redirect } from "react-router-dom";
 import { createPost } from "./api";
 
