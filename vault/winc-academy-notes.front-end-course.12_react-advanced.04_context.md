@@ -25,13 +25,13 @@ created: 1693384478409
 
 Component composition is not allways a practical solution i.e.:
 
-- if we have different components needing the same data across many different levels of the component tree in different sections of our app  
-  this would require us to write the entire component tree in the App.jsx file > this will limit the use of proper composition deeper in the tree  
+- In case we have different components needing the same data, across many different levels of the component tree, in different sections of our app  
+  we would need to write the entire component tree in the App.jsx file >>> this will limit the use of proper composition deeper in the tree  
   (like an app with light/dark themes, or info connected to current user that is used in many places in the app)
 
-**Context** is a React mechanism that prowides a good solution for this problem
-WHEN TO USE: when we have states that we need to share in many different places in our app
-(_component composition_ is best to use in case when states have to be shared within a limited number of components which are realtively close together)
+**Context** is a React mechanism that provides a good solution for this problem
+WHEN TO USE IT?: when we have states that we need to share in many different places in our app
+(_component composition_ is only best to use in case when states have to be shared within a limited number of components which are realtively close together)
 
 ## The Context API
 
@@ -45,7 +45,7 @@ export const Mycontext = createContext(defaultValue);
   - it can be anything, a simple value or a complex object (i.e. obj for user settings)
   - it is not dynamic in any way
 
-:warning: it is important to allways export the context since it is used in multiple places
+:warning: it is important to always export the context since it is used in multiple places
 
 ### Providing Context
 
@@ -59,16 +59,16 @@ Indicate the **scope** of the context
 </MyContext.Provider>
 ```
 
-:heavy_exclamation_mark: :point_down:
+**IMPORTANT**
 
 - **context.Provider** is a React component (a component can be a property of an object)
-- we can provide a **value prop**, contains a value that might be different from the _defaultValue_
-- this value can be - and usally is - dynamic (it is a value that is kept in state)
+- we can provide a **value prop**, which contains a value that might be different from the _defaultValue_
+- this value can be - and usaly is - dynamic (it is a value that is kept in state)
 - when the value changes all the components inside the _Provider_ that use the _context_ will be re-rendered
 
 ### Using Context
 
-We can use the context inside any of the components that live inside the Provider component
+We can use the context inside any of the components that wrapped inside the Provider component
 
 ```javascript
 import { useContext } from "react";
@@ -86,7 +86,7 @@ const ContextUser = () => {
 
 ### Multiple Contexts
 
-In case of a complex up it is better to have multiple complex, each holding values that belong together  
+In case of a complex app, it is better to have multiple contexts, each holding values that belong together  
 i.e.: context holding user settings and context holding the theme (this will make possible to nest providers)
 
 ```javascript
@@ -127,10 +127,10 @@ to the component, *the provider that is nested the deepest\*.
 
 2. **Creating a custom Provider component**
    Good practice to create a new component that makes using Context cleaner.  
-   We call these "custom Provider components"  
+   We call these components "custom Provider components"  
    Advantages:
    - they contain state and code to update the state
-   - if a code for a context needs to be updated, we can do this by updating only the custom Provider
+   - if the code for a context needs to be updated, we can do this by updating only the custom Provider
      and the components that use the context, there's no need to update intermediate components
 
 ```javascript
@@ -173,11 +173,14 @@ const App () => {
 ```
 
 **This will make sure that our App component is nice and clean when we use multiple contexts**.
-It is better than keeping different kinds of context states inside the App component
+It is better than keeping different kinds of context-states inside the App component
 
 3. **Creating a custom context hook**
-   A custom context hook will make the process of:  
-   importing useContext > importing Context > calling useContext nicer.
+   A custom context hook will make the process of
+
+> importing useContext > importing Context > calling useContext
+
+nicer.
 
 ```javascript
 import { useContext } from "react";
@@ -210,7 +213,7 @@ const UserName = () => {
 - we can access the setName function from the context's action prop (in case we wanted to change the user's name in the component)
 - if we use the UserName component outside the UserProvider, we will get the error message > and get a good hint why something doesn't work as expected
 
-:bangbang: The custom Provider (contains the state management) and the custom Hook helps to separate business logic from UI and helps with debugging as well.
+> **!! The custom Provider (contains the state management) and the custom Hook helps to separate business logic from UI and helps with debugging as well.**
 
 | [[\ FE notes \| winc-academy-notes.front-end-course]] | [[\ previous \| winc-academy-notes.front-end-course.12_react-advanced.03_component_composition]] | [[\ next \| winc-academy-notes.front-end-course.12_react-advanced.05_hooks]] | [[\ Overview \|winc-academy-notes.front-end-course.12_react-advanced.04_context#overview]] |
 | :---------------------------------------------------- | :----------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------: |
